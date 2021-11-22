@@ -46,6 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     setState(() {
       _isLoading = true;
     });
+    FocusScope.of(context).unfocus();
 
     //reg
     try{
@@ -59,22 +60,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
         print("$value"),
 
         if (value.contains("error")) {
-          Fluttertoast.showToast(
-            msg: "Inscription impossible",
-            gravity: ToastGravity.BOTTOM,
-            backgroundColor: Colors.red,
-            textColor: Colors.white,
-            // fontSize: 13.0
-          )
-        } else {
-          Fluttertoast.showToast(
-            msg: "Inscription fait...Connectez vous",
-            gravity: ToastGravity.BOTTOM,
-            backgroundColor: Colors.green,
-            textColor: Colors.white,
-            // fontSize: 13.0
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text("Inscription impossible"))
           ),
 
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(backgroundColor: MyColors.primary, content: Text("Inscription fait...Connectez vous"))
+          ),
+          
           Navigator.pop(context)
         }
       });
