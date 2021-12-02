@@ -27,61 +27,13 @@ class Auth with ChangeNotifier {
 
       final responseData = json.decode(response.body);
       print("######### $responseData");
-      // if (responseData['etat'] == false) {
-      //   throw(HttpException(responseData['response']));
-      // }
-      
-      // _isAuth = responseData['etat'];
-      // _userId = responseData['response']['_id'];
-      // _chantierId = responseData['response']['chantier'];
-      
-
-      //sharesPreferences
-      // final prefs = await SharedPreferences.getInstance();
-    
-      // final userData = json.encode({
-      //   'isAuth': _isAuth,
-      //   'userId': _userId,
-      //   'chantierId': _chantierId
-      // });
-
-      // prefs.setString('userData', userData);
+     
       
     } catch (e) {
       throw e;
     }
 
   }
-
-
-  //tryAutologin
-  // Future<bool> tryAutoLogin() async{
-  //   final prefs = await SharedPreferences.getInstance();
-
-  //   if (!prefs.containsKey('userData')) {
-  //     return false;
-  //   }
-
-  //   final extractedUserData = json.decode(prefs.getString('userData')) as Map<String, Object>;
-
-  //    _isAuth = extractedUserData['isAuth']; //key etat of json (tru or false)
-  //   _userId = extractedUserData['userId'];
-  //   _chantierId = extractedUserData['chantierId'];
-  //   notifyListeners();
-
-  //   return true;
-
-  // }
-
-  //   Future<void> logout() async {
-  //   _isAuth = null;
-  //   _userId = null;
-
-  //   notifyListeners();
-  //   final prefs = await SharedPreferences.getInstance();
-  //   // prefs.remove('userId');
-  //   prefs.clear();
-  // }
 
 
   //Register
